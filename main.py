@@ -3,7 +3,8 @@ def main():
     text = get_text(path)
     words = count_words(text)
     characters = count_characters(text)    
-    print( characters )
+    print(f"--- Begin report of {path} ---")
+    print(f"{words} words found in the document")
     
 
 def get_text(path):
@@ -22,5 +23,6 @@ def count_characters(text):
         else:
             alphabet[char] = 1
     return alphabet
+
 
 main()
