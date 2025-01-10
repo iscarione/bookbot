@@ -23,10 +23,20 @@ def count_characters(text):
     return alphabet
 
 def print_report(path, words, characters):
+    alphabet = alphabet_only(characters)
     print(f"--- Begin report of {path} ---")
-    print(f"{words} words found in the document")
-    for char in characters:
-        print(f"The {char} character was found {characters[char]}")
+    print(f"{words} words found in the document\n")
+    for char in alphabet:
+        print(f"The '{char}' character was found {alphabet[char]}")
     print("--- End report ---")
+
+def alphabet_only(chars):
+    only_alphabet = {}
+    a = sorted(chars.items(), key=lambda x: x[1], reverse=True)
+    for i in a:
+        if i[0].isalpha():
+                only_alphabet = only_alphabet | { i[0]: i[1] }
+
+    return only_alphabet
 
 main()
